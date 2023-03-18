@@ -49,11 +49,11 @@ struct BankManager {
             loanQueue.addOperation {
                 processPersonalBankTask(client)
             }
-        }
-        
-        depositQueue.maxConcurrentOperationCount = 2
-        depositQueue.addOperation {
-            processPersonalBankTask(client)
+        } else {
+            depositQueue.maxConcurrentOperationCount = 2
+            depositQueue.addOperation {
+                processPersonalBankTask(client)
+            }
         }
     }
     
